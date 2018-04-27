@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modifier, EditorState, SelectionState, RichUtils, AtomicBlockUtils } from 'draft-js'
-import { setBlockData, getSelectionEntity, removeAllInlineStyles } from 'draftjs-utils'
+import { setBlockData, getSelectionEntity ,removeSelectedBlocksStyle} from 'draftjs-utils'
 import { detectColorsFromHTML, detectColorsFromRaw } from 'helpers/colors'
 
 export default class EditorController extends React.Component{
@@ -118,7 +118,7 @@ export default class EditorController extends React.Component{
   }
 
   removeSelectionInlineStyles = () => {
-    return this.applyChange(removeAllInlineStyles(this.editorState))
+    return this.applyChange(removeSelectedBlocksStyle(this.editorState))
   }
 
   toggleSelectionAlignment = (alignment) => {
